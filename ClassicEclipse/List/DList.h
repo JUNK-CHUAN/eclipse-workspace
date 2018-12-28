@@ -34,14 +34,14 @@ public:
 
     void* operator new(size_t) { // Overloaded new operator
         if (freelist == NULL) return ::new DLink; // Create space
-        Link<E>* temp = freelist; // Can take from freelist
+        DLink<E>* temp = freelist; // Can take from freelist
         freelist = freelist->next;
         return temp; // Return the link
     }
     // Overloaded delete operator
     void operator delete(void* ptr) {
-        ((Link<E>*)ptr)->next = freelist; // Put on freelist
-        freelist = (Link<E>*)ptr;
+        ((DLink<E>*)ptr)->next = freelist; // Put on freelist
+        freelist = (DLink<E>*)ptr;
     }
 };
 

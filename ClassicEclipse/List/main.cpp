@@ -1,7 +1,7 @@
 #include <iostream>
 #include "LList.h"
 #include "CList.h"
-#include "Dlist.h"
+#include "DList.h"
 #include "Pair.h"
 using namespace std;
 
@@ -11,9 +11,9 @@ void Gather (LList<int>& L1, LList<int>& L2);
 void Josehus (CList<int>& Cir, int& StuNum, int& StartNUm);
 void StuOut(CList<int>& Cir, int& StartNum);
 
-void catFunc(DList<KVpair<int, int>>& func1, DList<KVpair<int, int>>& func2);
-void Print(DList<KVpair<int, int>>& func);
-void EPrint(DList<KVpair<int, int>>& func);
+void catFunc(DList<KVpair<int, int> >& func1, DList<KVpair<int, int> >& func2);
+void Print(DList<KVpair<int, int> >& func);
+void EPrint(DList<KVpair<int, int> >& func);
 
 int main (void) {
     LList<int> L1;
@@ -37,8 +37,8 @@ int main (void) {
 
 
     // 稀疏多项式相加
-    DList<KVpair<int, int>> F_x;
-    DList<KVpair<int, int>> G_x;
+    DList<KVpair<int, int> > F_x;
+    DList<KVpair<int, int> > G_x;
 
     KVpair<int, int> it;
 
@@ -134,7 +134,7 @@ void StuOut(CList<int>& Cir, int& StartNum){
 
 
 
-void catFunc(DList<KVpair<int, int>>& func1, DList<KVpair<int, int>>& func2) {
+void catFunc(DList<KVpair<int, int> >& func1, DList<KVpair<int, int> >& func2) {
     int time = 0;
     int pos = 0;
     int length = func2.length();
@@ -157,7 +157,7 @@ void catFunc(DList<KVpair<int, int>>& func1, DList<KVpair<int, int>>& func2) {
     }
 }
 
-void Print(DList<KVpair<int, int>>& func) {
+void Print(DList<KVpair<int, int> >& func) {
     int time = 1;
     for (func.moveToStart(); time<func.length(); func.next()) {
         cout << func.getValue().coeffeicient() << "x^" << func.getValue().getIndex() << '+';
@@ -166,7 +166,7 @@ void Print(DList<KVpair<int, int>>& func) {
     cout << func.getValue().coeffeicient() << "x^" << func.getValue().getIndex() << endl;
 }
 
-void EPrint(DList<KVpair<int, int>>& func) {
+void EPrint(DList<KVpair<int, int> >& func) {
     int time = 1;
     func.moveToEnd();
     func.prev();
