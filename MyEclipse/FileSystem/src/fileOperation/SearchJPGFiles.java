@@ -60,6 +60,7 @@ class Search implements FileVisitor {
 	// 查找一个目录下的所有的jpg文件,包括子文件夹
 	public class SearchJPGFiles {
 		
+		@SuppressWarnings("unchecked")
 		public void main(String[] args) throws IOException {
 			// 定义扩展名，和待查找目录
 			String ext = "*.jpg";
